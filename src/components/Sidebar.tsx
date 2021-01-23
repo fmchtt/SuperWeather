@@ -1,4 +1,4 @@
-import react, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/components/sidebar.css";
 import { HiLocationMarker } from "react-icons/hi";
 import { BiCurrentLocation } from "react-icons/bi";
@@ -65,7 +65,7 @@ export default function Sidebar(props: location) {
         setPosition(pos.coords.latitude + "," + pos.coords.longitude);
       });
     }
-  }, []);
+  }, [props.data.created]);
 
   if (searching) {
     return (
@@ -108,6 +108,7 @@ export default function Sidebar(props: location) {
                   setSearchData([]);
                   setSearchQuery("");
                   setSearching(false);
+                  window.location.reload(false);
                 }}
               >
                 <h1>{data.title}</h1>
@@ -145,7 +146,7 @@ export default function Sidebar(props: location) {
           </button>
         </nav>
         <img
-          src={`http://metaweather.com/static/img/weather/${props.data.weather_state_abbr}.svg`}
+          src={`http://metaweather.com/static/img/weather/${props.data.weather_state_abbr}.svg`} alt="logo"
         ></img>
         <h1>{props.data.the_temp.toFixed(0)}°</h1>
         <h3>{props.data.weather_state_name}</h3>

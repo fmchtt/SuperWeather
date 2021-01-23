@@ -3,6 +3,7 @@ import "../styles/App.css";
 
 import Sidebar from "../components/Sidebar";
 import api from "../services/api";
+import Loading from "../components/Loadind";
 
 interface data {
   title: string;
@@ -87,7 +88,7 @@ function App() {
   }, []);
 
   if (!weather) {
-    return <h1>Carregando...</h1>;
+    return <h1><Loading /></h1>;
   } else {
     return (
       <main className="App">

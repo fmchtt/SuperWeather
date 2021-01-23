@@ -75,6 +75,8 @@ p {
   padding: 30px;
 
   background: #1e213a;
+
+  overflow-x: scroll;
 }
 
 #search input {
